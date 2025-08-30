@@ -20,7 +20,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             const headerHeight = document.querySelector('.header').offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight;
+            const targetPosition = target.offsetTop - headerHeight + 70;
             
             window.scrollTo({
                 top: targetPosition,
@@ -225,7 +225,7 @@ window.addEventListener('scroll', () => {
     
     let current = '';
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop - 30;
         const sectionHeight = section.clientHeight;
         if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
@@ -240,6 +240,79 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// Contact form handling
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.form');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            // Show loading state
+            submitButton.textContent = 'Enviando...';
+            submitButton.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(form);
+            
+            // Submit to Formspree
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success
+                    showMessage('¡Mensaje enviado con éxito! Te contactaremos pronto.', 'success');
+                    form.reset();
+                } else {
+                    // Error
+                    showMessage('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.', 'error');
+                }
+            })
+            .catch(error => {
+                showMessage('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.', 'error');
+            })
+            .finally(() => {
+                // Reset button
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
+        });
+    }
+});
+
+// Function to show messages
+function showMessage(message, type) {
+    // Remove existing messages
+    const existingMessage = document.querySelector('.form-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Create message element
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `form-message form-message-${type}`;
+    messageDiv.textContent = message;
+    
+    // Insert after form
+    const form = document.querySelector('.form');
+    form.parentNode.insertBefore(messageDiv, form.nextSibling);
+    
+    // Remove message after 5 seconds
+    setTimeout(() => {
+        if (messageDiv.parentNode) {
+            messageDiv.remove();
+        }
+    }, 5000);
+}
+
 // Add CSS for active navigation state
 const style = document.createElement('style');
 style.textContent = `
@@ -247,15 +320,20 @@ style.textContent = `
         color: var(--accent-red) !important;
         font-weight: 600 !important;
     }
-    
     .nav-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: var(--accent-red);
+        display: none !important;
+    }
+    .header::after {
+        display: none !important;
+    }
+    .navbar::after {
+        display: none !important;
+    }
+    .nav-container::after {
+        display: none !important;
+    }
+    .nav-link::after {
+        display: none !important;
     }
 `;
 document.head.appendChild(style);
