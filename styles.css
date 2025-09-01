@@ -357,7 +357,7 @@ html {
 .service-icon {
     width: 60px;
     height: 60px;
-    background: url('assets/usflag.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/usflag.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -366,7 +366,7 @@ html {
     justify-content: center;
     flex-shrink: 0;
     transition: transform 0.3s ease;
-    border: 2px solid var(--secondary-blue);
+    border: 2px solid var(--primary-white);
 }
 
 .service-content:hover .service-icon {
@@ -375,7 +375,7 @@ html {
 
 .service-icon i {
     font-size: 2rem;
-    color: var(--secondary-blue);
+    color: var(--primary-white);
 }
 
 .service-summary {
@@ -523,9 +523,9 @@ html {
 
 .testimonial-rating {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 0.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .testimonial-rating i {
@@ -552,6 +552,7 @@ html {
 .testimonial-author {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
 }
 
