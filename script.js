@@ -1,3 +1,57 @@
+// Service expansion functionality
+function toggleService(serviceId) {
+    console.log('toggleService called with:', serviceId);
+    
+    const serviceCard = document.querySelector(`[data-service="${serviceId}"]`);
+    if (!serviceCard) {
+        console.error('Service card not found for:', serviceId);
+        return;
+    }
+    
+    const isExpanded = serviceCard.classList.contains('expanded');
+    console.log('Service is expanded:', isExpanded);
+    
+    // If the clicked service is already expanded, collapse it
+    if (isExpanded) {
+        serviceCard.classList.remove('expanded');
+        console.log('Service collapsed:', serviceId);
+    } else {
+        // Close all other services first
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.classList.remove('expanded');
+        });
+        
+        // Expand the clicked service
+        serviceCard.classList.add('expanded');
+        console.log('Service expanded:', serviceId);
+    }
+}
+
+// Initialize service cards when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing service cards...');
+    
+    // Add event listeners for service cards
+    const serviceContents = document.querySelectorAll('.service-content');
+    console.log('Found service contents:', serviceContents.length);
+    
+    serviceContents.forEach((content, index) => {
+        content.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const serviceCard = this.closest('.service-card');
+            const serviceId = serviceCard.getAttribute('data-service');
+            console.log(`Service content ${index} clicked:`, serviceId);
+            
+            toggleService(serviceId);
+        });
+        
+        // Add visual feedback that it's clickable
+        content.style.cursor = 'pointer';
+    });
+});
+
 // Mobile Navigation Toggle
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
@@ -169,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Service cards hover effect enhancement
 document.querySelectorAll('.service-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
+        this.style.transform = 'translateY(-5px) scale(1.01)';
     });
     
     card.addEventListener('mouseleave', function() {
@@ -240,50 +294,56 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Contact form handling
+// WhatsApp form handling
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('.form');
+    const whatsappForm = document.getElementById('whatsapp-form');
     
-    if (form) {
-        form.addEventListener('submit', function(e) {
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
-            // Show loading state
-            submitButton.textContent = 'Enviando...';
-            submitButton.disabled = true;
-            
             // Get form data
-            const formData = new FormData(form);
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const service = formData.get('service');
+            const message = formData.get('message');
             
-            // Submit to Formspree
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success
-                    showMessage('¡Mensaje enviado con éxito! Te contactaremos pronto.', 'success');
-                    form.reset();
-                } else {
-                    // Error
-                    showMessage('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.', 'error');
-                }
-            })
-            .catch(error => {
-                showMessage('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.', 'error');
-            })
-            .finally(() => {
-                // Reset button
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            });
+            // Basic validation
+            if (!name || !email || !service || !message) {
+                showMessage('Por favor completa todos los campos requeridos.', 'error');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showMessage('Por favor ingresa un email válido.', 'error');
+                return;
+            }
+            
+            // Create WhatsApp message
+            let whatsappMessage = `*Nueva Consulta desde sitio web*%0A%0A`;
+            whatsappMessage += `*Nombre:* ${name}%0A`;
+            whatsappMessage += `*Email:* ${email}%0A`;
+            if (phone) {
+                whatsappMessage += `*Teléfono:* ${phone}%0A`;
+            }
+            whatsappMessage += `*Servicio:* ${service}%0A`;
+            whatsappMessage += `*Mensaje:* ${message}`;
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/17547360059?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message
+            showMessage('¡Formulario enviado! Se abrirá WhatsApp con tu consulta.', 'success');
+            
+            // Reset form
+            this.reset();
         });
     }
 });

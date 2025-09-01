@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Gersiré Marrufo - Preparadora de Trámites Migratorios</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -61,89 +61,274 @@
                 <h2 class="section-title">Mis Servicios</h2>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-stamp"></i>
+                <div class="service-card" data-service="notary">
+                    <div class="service-title-header">
+                        <h3>Notary Public</h3>
                     </div>
-                    <h3>Notary Public</h3>
-                    <p>Servicios notariales profesionales para todos tus documentos migratorios.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-stamp"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Servicios notariales profesionales para todos tus documentos migratorios.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="notary-details">
+                        <p>Servicios notariales completos para todos tus documentos migratorios, incluyendo certificaciones, juramentos y autenticaciones. Como Notary Public certificada, puedo ayudarte con la legalización de documentos necesarios para tus trámites migratorios.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
+                
+                <div class="service-card" data-service="asilo-afirmativo">
+                    <div class="service-title-header">
+                        <h3>Asilo Político Afirmativo</h3>
                     </div>
-                    <h3>Asilo Político Afirmativo</h3>
-                    <p>Asesoramiento completo para solicitudes de asilo político afirmativo.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Asesoramiento completo para solicitudes de asilo político afirmativo.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="asilo-afirmativo-details">
+                        <p>Es una protección que pueden solicitar las personas que ya se encuentran en Estados Unidos y temen regresar a su país de origen debido a persecución por motivos de raza, religión, nacionalidad, opinión política o pertenencia a un grupo social en particular.</p>
+                        <p>Este trámite se presenta de manera voluntaria ante USCIS, dentro del primer año de haber ingresado al país (salvo ciertas excepciones).</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-gavel"></i>
+                
+                <div class="service-card" data-service="asilo-defensivo">
+                    <div class="service-title-header">
+                        <h3>Asilo Político Defensivo</h3>
                     </div>
-                    <h3>Asilo Político Defensivo</h3>
-                    <p>Representación legal en procedimientos de asilo defensivo.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Representación legal en procedimientos de asilo defensivo.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="asilo-defensivo-details">
+                        <p>Es una protección que pueden solicitar las personas que ya se encuentran en Estados Unidos y temen regresar a su país de origen debido a persecución por motivos de raza, religión, nacionalidad, opinión política o pertenencia a un grupo social en particular.</p>
+                        <p>Se solicita cuando una persona se encuentra en procesos de deportación ante una corte de inmigración en Estados Unidos. Este tipo de protección se pide como defensa para evitar la expulsión del país.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
+                
+                <div class="service-card" data-service="permiso-trabajo">
+                    <div class="service-title-header">
+                        <h3>Permiso de Trabajo</h3>
                     </div>
-                    <h3>Permiso de Trabajo</h3>
-                    <p>Gestión de permisos de trabajo y renovaciones.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Gestión de permisos de trabajo y renovaciones.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="permiso-trabajo-details">
+                        <p>También llamado EAD (Employment Authorization Document), es un documento que otorga USCIS y que autoriza legalmente a una persona a trabajar en Estados Unidos por un período determinado.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-passport"></i>
+                
+                <div class="service-card" data-service="tps">
+                    <div class="service-title-header">
+                        <h3>TPS</h3>
                     </div>
-                    <h3>TPS</h3>
-                    <p>Solicitud y renovación de Estatus de Protección Temporal.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Solicitud y renovación de Estatus de Protección Temporal.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="tps-details">
+                        <p>Es un beneficio migratorio que otorga el gobierno de Estados Unidos a personas de ciertos países que atraviesan situaciones extraordinarias, como conflictos armados, desastres naturales o condiciones que impiden el retorno seguro.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-sync-alt"></i>
+                
+                <div class="service-card" data-service="re-inscripcion-tps">
+                    <div class="service-title-header">
+                        <h3>Re-inscripción de TPS</h3>
                     </div>
-                    <h3>Re-inscripción de TPS</h3>
-                    <p>Proceso de re-inscripción para mantener tu estatus TPS.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Proceso de re-inscripción para mantener tu estatus TPS.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="re-inscripcion-tps-details">
+                        <p>Es el proceso obligatorio que deben hacer las personas que ya tienen TPS aprobado, cada vez que el gobierno de EE. UU. lo extiende.</p>
+                        <p>Si no te re-registras durante el período de reinscripción, puedes perder tu protección y tu permiso de trabajo.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-folder-open"></i>
+                
+                <div class="service-card" data-service="actualizacion-expedientes">
+                    <div class="service-title-header">
+                        <h3>Actualización de Expedientes</h3>
                     </div>
-                    <h3>Actualización de Expedientes</h3>
-                    <p>Actualización y seguimiento de expedientes en USCIS.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Actualización y seguimiento de expedientes en USCIS.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="actualizacion-expedientes-details">
+                        <p>USCIS está llamando activamente a entrevistas de Asilos.</p>
+                        <p>¿Y si te llega la cita ¿Vas a estar preparado?</p>
+                        <p>Refuerza tu caso de asilo con evidencias, informes actualizados de organismos internacionales sobre violaciones de derechos humanos, complementa tu declaración y demuestra tu miedo futuro de regresar a tu país.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
+                
+                <div class="service-card" data-service="foia">
+                    <div class="service-title-header">
+                        <h3>Solicitud de FOIA</h3>
                     </div>
-                    <h3>Solicitud de FOIA</h3>
-                    <p>Gestión de solicitudes de información bajo la Ley FOIA.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Gestión de solicitudes de información bajo la Ley FOIA.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="foia-details">
+                        <p>FOIA significa Freedom of Information Act (Ley de Libertad de Información).</p>
+                        <p>¿Para qué sirve pedir un FOIA?</p>
+                        <p>Permite que cualquier persona pida acceso a los expedientes que el gobierno (USCIS, CBP, ICE, FBI, EOIR) tiene sobre ti.</p>
+                        <p>Con esta copia de tu expediente migratorio puedes preparar mejor tu caso antes de aplicar a un beneficio migratorio.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-exchange-alt"></i>
+                
+                <div class="service-card" data-service="ajuste-estatus">
+                    <div class="service-title-header">
+                        <h3>Ajuste de Estatus</h3>
                     </div>
-                    <h3>Ajuste de Estatus</h3>
-                    <p>Proceso de ajuste de estatus migratorio.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Proceso de ajuste de estatus migratorio.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="ajuste-estatus-details">
+                        <p>Es el procedimiento que permite a ciertas personas solicitar convertirse en residentes permanentes legales (obtener la Green Card) desde dentro de Estados Unidos.</p>
+                        <p>Esto significa que no es necesario salir del país ni regresar a su lugar de origen para terminar el proceso de la visa.</p>
+                        <p>En cambio, quienes se encuentran fuera de EE. UU. deben tramitar su residencia mediante el proceso consular en la embajada o consulado correspondiente.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-flag"></i>
+                
+                <div class="service-card" data-service="ajuste-cubano">
+                    <div class="service-title-header">
+                        <h3>Ajuste Cubano</h3>
                     </div>
-                    <h3>Ajuste Cubano</h3>
-                    <p>Procedimientos especiales para ajuste de estatus cubano.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Procedimientos especiales para ajuste de estatus cubano.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="ajuste-cubano-details">
+                        <p>Es un beneficio migratorio establecido por la Ley de Ajuste Cubano de 1966, que permite a ciudadanos de Cuba y sus familiares inmediatos obtener la residencia permanente (Green Card) en Estados Unidos de una manera más directa que otros procesos.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
+                
+                <div class="service-card" data-service="peticion-familiar">
+                    <div class="service-title-header">
+                        <h3>Petición Familiar</h3>
                     </div>
-                    <h3>Petición Familiar</h3>
-                    <p>Gestión de peticiones familiares para reunificación.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Gestión de peticiones familiares para reunificación.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="peticion-familiar-details">
+                        <p>Es el proceso mediante el cual un ciudadano estadounidense o un residente permanente legal (LPR) puede solicitar que ciertos familiares obtengan la residencia permanente (Green Card) en EE. UU.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-heart"></i>
+                
+                <div class="service-card" data-service="visa-fiance">
+                    <div class="service-title-header">
+                        <h3>Visa de Fiancé</h3>
                     </div>
-                    <h3>Visa de Fiancé</h3>
-                    <p>Proceso completo para visas de prometido.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Proceso completo para visas de prometido.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="visa-fiance-details">
+                        <p>Es una visa temporal de no inmigrante que permite al prometido/a de un ciudadano estadounidense entrar legalmente a EE. UU. para casarse.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="permisos-viajes">
+                    <div class="service-title-header">
+                        <h3>Permisos de Viajes (Advance of Parole)</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="service-summary">
+                            <p>Documento que permite salir y reingresar a Estados Unidos durante trámites migratorios.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="service-details" id="permisos-viajes-details">
+                        <p>Es un documento que emite USCIS y que permite a ciertas personas que están en trámite migratorio salir de Estados Unidos y volver a entrar legalmente sin perder su proceso.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -251,6 +436,17 @@
                         </div>
                     </div>
                     <div class="contact-item">
+                        <a href="https://www.instagram.com/gersiremarrufo" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="contact-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
+                        <div class="contact-details">
+                            <h4><a href="https://www.instagram.com/gersiremarrufo" target="_blank" style="color: var(--secondary-blue); text-decoration: none;">Instagram</a></h4>
+                            <p><a href="https://www.instagram.com/gersiremarrufo" target="_blank" style="color: var(--accent-red); text-decoration: none;">@gersiremarrufo</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -261,7 +457,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form class="form" action="https://formspree.io/f/xpzgwqjq" method="POST">
+                    <form class="form" id="whatsapp-form">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Tu Nombre *" required>
                         </div>
@@ -286,13 +482,17 @@
                                 <option value="ajuste-cubano">Ajuste Cubano</option>
                                 <option value="peticion-familiar">Petición Familiar</option>
                                 <option value="visa-fiance">Visa de Fiancé</option>
+                                <option value="permisos-viajes">Permisos de Viajes (Advance of Parole)</option>
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <textarea id="message" name="message" placeholder="Cuéntame sobre tu caso *" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">Enviar Consulta</button>
+                        <button type="submit" class="btn btn-primary btn-full whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                        </button>
+                        <p class="whatsapp-note">* Al hacer clic se abrirá WhatsApp con tu mensaje pre-llenado</p>
                     </form>
                 </div>
             </div>
@@ -315,8 +515,7 @@
                     <a href="#contacto">Contacto</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/gersiremarrufo" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/17547360059" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
