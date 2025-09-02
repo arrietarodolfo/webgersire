@@ -441,13 +441,15 @@ html {
 /* About Section */
 .about {
     padding: 80px 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(248, 250, 252, 0.45) 100%), url('assets/bannerflag2.jpg');
-    background-size: contain;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(248, 250, 252, 0.45) 100%), url('assets/227.jpg');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: relative;
 }
+
+
 
 .about::before {
     content: '';
@@ -932,6 +934,8 @@ html {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+
 
     .about-photo {
         width: 100%;
