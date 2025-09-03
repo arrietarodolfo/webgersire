@@ -193,11 +193,12 @@ html {
 }
 
 .hero-description {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     color: var(--dark-gray);
     margin-bottom: 2rem;
     line-height: 1.7;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    font-weight: 700;
 }
 
 .hero-buttons {
@@ -477,6 +478,7 @@ html {
     margin-bottom: 1.5rem;
     line-height: 1.7;
     font-weight: 700;
+    text-align: justify;
 }
 
 .about-features {
@@ -574,6 +576,10 @@ html {
     line-height: 1.6;
     font-size: 1.125rem;
 }
+
+
+
+
 
 .testimonial-author {
     display: flex;
@@ -686,6 +692,8 @@ html {
     resize: vertical;
     min-height: 120px;
 }
+
+
 
 /* WhatsApp Contact Styles */
 .whatsapp-contact {
@@ -901,6 +909,16 @@ html {
     .nav-toggle {
         display: flex;
     }
+    
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .logo-text-img {
+        height: 35px;
+        width: auto;
+    }
 
     .hero-container {
         grid-template-columns: 1fr;
@@ -1087,6 +1105,16 @@ html {
         padding: 0 15px;
         max-width: 100%;
     }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-text-img {
+        height: 30px;
+        width: auto;
+    }
 
     .hero {
         padding: 80px 0 40px;
@@ -1103,8 +1131,9 @@ html {
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: 1.25rem;
         line-height: 1.6;
+        font-weight: 700;
     }
 
     .hero-photo {
@@ -1195,6 +1224,7 @@ html {
     .about-description {
         font-size: 1rem;
         line-height: 1.6;
+        text-align: justify;
     }
 
     .about-photo {
@@ -1320,6 +1350,16 @@ html {
 @media (max-width: 360px) {
     .container {
         padding: 0 10px;
+    }
+    
+    .logo {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .logo-text-img {
+        height: 25px;
+        width: auto;
     }
     
     .hero-container {

@@ -480,16 +480,22 @@
                 <div class="contact-form">
                     <form class="form" id="whatsapp-form">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Tu Nombre *" required>
+                            <input type="text" id="name" name="name" placeholder="Tu Nombre *" required 
+                                   oninvalid="this.setCustomValidity('Por favor, ingresa tu nombre')" 
+                                   oninput="this.setCustomValidity('')">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Correo Electrónico *" required>
+                            <input type="email" id="email" name="email" placeholder="Correo Electrónico *" required 
+                                   oninvalid="this.setCustomValidity('Por favor, ingresa un correo electrónico válido')" 
+                                   oninput="this.setCustomValidity('')">
                         </div>
                         <div class="form-group">
                             <input type="tel" id="phone" name="phone" placeholder="Teléfono">
                         </div>
                         <div class="form-group">
-                            <select id="service" name="service" required>
+                            <select id="service" name="service" required 
+                                    oninvalid="this.setCustomValidity('Por favor, selecciona un servicio')" 
+                                    oninput="this.setCustomValidity('')">
                                 <option value="">Selecciona un Servicio *</option>
                                 <option value="notary">Notary Public</option>
                                 <option value="asilo-afirmativo">Asilo Político Afirmativo</option>
@@ -508,7 +514,9 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Cuéntame sobre tu caso *" rows="5" required></textarea>
+                            <textarea id="message" name="message" placeholder="Cuéntame sobre tu caso *" rows="5" required 
+                                      oninvalid="this.setCustomValidity('Por favor, cuéntame sobre tu caso')" 
+                                      oninput="this.setCustomValidity('')"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full whatsapp-btn">
                             <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
